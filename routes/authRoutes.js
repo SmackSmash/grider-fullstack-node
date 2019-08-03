@@ -2,7 +2,7 @@ const passport = require('passport');
 
 module.exports = app => {
   app.get('/', (req, res) => {
-    res.send('Routes still work!');
+    res.send(process.env.MONGO_URI || 'Routes still work!');
   });
 
   app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
