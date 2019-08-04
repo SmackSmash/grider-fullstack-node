@@ -12,7 +12,6 @@ import './App.scss';
 
 const App = ({ fetchUser }) => {
   useEffect(() => {
-    console.log('App useEffect fired!');
     fetchUser();
   }, [fetchUser]);
 

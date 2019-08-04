@@ -4,19 +4,13 @@ import { connect } from 'react-redux';
 
 const Header = ({ auth }) => {
   const renderLogin = () => {
-    console.log(auth.googleId);
-    if (auth.googleId) {
-      return (
-        <NavLink to='/api/logout' activeClassName='active'>
-          Sign out
-        </NavLink>
-      );
-    } else {
-      return (
-        <NavLink to='/auth/google' activeClassName='active'>
-          Sign in with google
-        </NavLink>
-      );
+    switch (auth) {
+      case null:
+        return;
+      case false:
+        return <a href='/auth/google'>Sign in with google</a>;
+      default:
+        return <a href='/api/logout'>Sign out</a>;
     }
   };
 
