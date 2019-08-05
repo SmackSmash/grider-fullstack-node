@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Payments from '../../components/payments/payments.component';
+import './header.styles.scss';
 
 const Header = ({ auth }) => {
   const renderLogo = () => {
@@ -53,8 +54,8 @@ const Header = ({ auth }) => {
             </li>
             <li>
               <Payments />
-              {auth.credits} credits
             </li>
+            <li className='credits'>{auth.credits}</li>
           </>
         );
     }
