@@ -16,7 +16,7 @@ const Header = ({ auth }) => {
         );
       default:
         return (
-          <Link to='/dashboard' className='brand-logo'>
+          <Link to='/surveys' className='brand-logo'>
             Emailer
           </Link>
         );
@@ -43,12 +43,12 @@ const Header = ({ auth }) => {
         return (
           <>
             <li>
-              <NavLink to='/dashboard' activeClassName='active'>
+              <NavLink to='/surveys' activeClassName='active'>
                 Dashboard
               </NavLink>
             </li>
             <li>
-              <NavLink to='/survey-new' activeClassName='active'>
+              <NavLink to='/surveys/new' activeClassName='active'>
                 New Survey
               </NavLink>
             </li>

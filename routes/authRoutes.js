@@ -13,7 +13,7 @@ module.exports = app => {
   });
 
   app.get('/auth/google/callback', passport.authenticate('google'), (req, res) => {
-    res.redirect('/dashboard');
+    res.redirect('/surveys');
   });
 
   app.get('/api/current_user', (req, res) => {

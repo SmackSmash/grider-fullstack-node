@@ -20,8 +20,8 @@ const App = ({ fetchUser }) => {
       <div className='app container'>
         <Header />
         <Route path='/' exact component={Landing} />
-        <Route path='/dashboard' exact component={Dashboard} />
-        <Route path='/survey-new' exact component={SurveyNew} />
+        <Route path='/surveys' exact component={Dashboard} />
+        <Route path='/surveys/new' exact component={SurveyNew} />
       </div>
     </BrowserRouter>
   );
