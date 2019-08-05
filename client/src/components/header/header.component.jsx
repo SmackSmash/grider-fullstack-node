@@ -3,6 +3,24 @@ import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const Header = ({ auth }) => {
+  const renderLogo = () => {
+    switch (auth) {
+      case null:
+      case false:
+        return (
+          <Link to='/' className='brand-logo'>
+            Emailer
+          </Link>
+        );
+      default:
+        return (
+          <Link to='/dashboard' className='brand-logo'>
+            Emailer
+          </Link>
+        );
+    }
+  };
+
   const renderLogin = () => {
     switch (auth) {
       case null:
@@ -14,23 +32,35 @@ const Header = ({ auth }) => {
     }
   };
 
+  const renderNav = () => {
+    switch (auth) {
+      case null:
+      case false:
+        return;
+      default:
+        return (
+          <>
+            <li>
+              <NavLink to='/dashboard' activeClassName='active'>
+                Dashboard
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to='/survey-new' activeClassName='active'>
+                New Survey
+              </NavLink>
+            </li>
+          </>
+        );
+    }
+  };
+
   return (
     <nav>
       <div className='nav-wrapper'>
-        <Link to='/' className='brand-logo'>
-          Emailer
-        </Link>
+        {renderLogo()}
         <ul className='right hide-on-med-and-down'>
-          <li>
-            <NavLink to='/dashboard' activeClassName='active'>
-              Dashboard
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/survey-new' activeClassName='active'>
-              New Survey
-            </NavLink>
-          </li>
+          {renderNav()}
           <li>{renderLogin()}</li>
         </ul>
       </div>
