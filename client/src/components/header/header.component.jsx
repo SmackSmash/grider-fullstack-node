@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Payments from '../../components/payments/payments.component';
 
 const Header = ({ auth }) => {
   const renderLogo = () => {
@@ -49,6 +50,10 @@ const Header = ({ auth }) => {
               <NavLink to='/survey-new' activeClassName='active'>
                 New Survey
               </NavLink>
+            </li>
+            <li>
+              <Payments />
+              {auth.credits} credits
             </li>
           </>
         );
